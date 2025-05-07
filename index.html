@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang='zh-CN'>
 <head>
-    <meta charset="UTF-8">
+    <meta charset='UTF-8'>
     <title>关于与帮助 - PixyChan32</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
@@ -48,6 +48,7 @@ html {
         h2 { margin-top: 30px; color: blueviolet}
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        td:hover{ background: #dddddd}
         th { background: #eee; }
         .qa { margin-top: 20px; }
         .qa p { margin: 5px 0; }
@@ -98,6 +99,10 @@ html {
         .card a:hover {
             background: #45a049;
         }
+        .card:hover {
+            box-shadow: 0 4px 5px rgba(0,0,0,0.3);
+
+        }
         .screen-demo {
             width: 120px;
             height: 160px;
@@ -114,30 +119,32 @@ html {
 </head>
 <body>
 
-<div class="progress-container">
-    <div class="progress-bar" id="progressBar"></div>
+<div class='progress-container'>
+    <div class='progress-bar' id='progressBar'></div>
 </div>
 
-<div class="sidebar">
+<div class='sidebar'>
     <h2>PixyChan32</h2>
-    <a href="#about" class="nav-link">关于 PixyChan32</a>
-    <a href="#basic" class="nav-link">基本操作</a>
-    <a href="#settings" class="nav-link">设置页面</a>
-    <a href="#qa" class="nav-link">常见问题</a>
-    <a href="#download" class="nav-link">下载与支持</a>
+    <a href='#about' class='nav-link'>关于 PixyChan32</a>
+    <a href='#basic' class='nav-link'>基本操作</a>
+    <a href='#settings' class='nav-link'>设置页面</a>
+    <a href='#main' class='nav-link'>主页页面</a>
+    <a href='#qa' class='nav-link'>常见问题</a>
+    <a href='#download' class='nav-link'>下载与支持</a>
+
 </div>
 
-<div class="content">
-    <h1 id="about">关于 PixyChan32</h1>
+<div class='content'>
+    <h1 id='about'>关于 PixyChan32</h1>
     <p><strong>PixyChan32</strong> 是一款由 <strong>IDlike</strong> 打造的小型触控图片/动图显示器。
     内置 1000mAh 电池与 10MB 存储空间，支持存储最多 <strong>3张静态图片</strong>（M1-M3槽位）与 <strong>1个动图</strong>（LM槽位）。
     它提供便捷触控与高效图片管理体验，是您的随身图像展示好伙伴。</p>
 
     <h3>屏幕参数</h3>
     <p>PixyChan32 配备了一块 <strong>240×320</strong> 分辨率的彩色触摸屏。</p>
-    <div class="screen-demo">240×320</div>
+    <div class='screen-demo'>240×320</div>
 
-    <h2 id="basic">基本操作</h2>
+    <h2 id='basic'>基本操作</h2>
     <ul>
         <li><strong>上传图片</strong>：使用图片上传工具，将图片上传至缓冲区(M0)。</li>
         <li><strong>保存到槽位</strong>：点击 M1-M3，将缓冲区图片保存到对应槽位（按钮变绿表示成功）。已有图片将被替换。</li>
@@ -148,26 +155,50 @@ html {
         <li><strong>物理按键 - 重启键</strong>：立即重启设备。</li>
     </ul>
 
-    <h2 id="settings">设置页面</h2>
+    <h2 id='settings'>设置页面</h2>
     <p>点击右上角齿轮图标进入设置页面，支持：</p>
     <ul>
         <li>查看设备存储状态</li>
         <li>设置动图播放帧率（建议15帧/秒，支持1-17帧/秒）</li>
-        <li>启用/禁用开机播放动图</li>
+        <li>启用/禁用开机播放动图（如果已经上传）</li>
+        <li>查看设备电池电量</li>
     </ul>
-
-    <h3>底部功能按钮</h3>
+        <h3>底部功能按钮</h3>
     <table>
-        <tr><th>功能</th><th>描述</th></tr>
+        <tr><th>按钮名称</th><th>描述</th></tr>
         <tr><td>清除图片/动图</td><td>清除缓冲区、M1-M3、LM所有内容并重启。</td></tr>
         <tr><td>校准触摸</td><td>清除校准信息并重启，重启后需重新校准。</td></tr>
         <tr><td>重启设备</td><td>立即重启设备。</td></tr>
     </table>
+    <h2 id='main'>主页页面</h2>
+    <h3>信息显示</h3>
+    <h4>主从模式</h4>
+    <ul>
+        <li><strong>主模式</strong>：设备启动一个<strong>热点</strong>，使用可以接入wifi的设备连接到热点来进行控制</li>
+        <li><strong>从模式</strong>：需要在主模式配置（使用下载与支持页的“在线配网”配置），使用可以接入wifi的设备连接到热点来进行控制。</li>
+        <li><strong>主从切换</strong>：在主模式配置完成连接信息，自动进入从模式，如果连接5次wifi不成功，则自动回到主模式</li>
+    </ul>
+    <h4>信息</h4>
+    <ul>
+        <li><strong>主模式下</strong>：可通过WIFI名、WIFI密码、管理地址连接到设备并管理</li>
+        <li><strong>从模式下</strong>：可通过管理地址连接到设备并管理（需要连接到同一个网络）</li>
+
+    </ul>
+
+    <h3>底部功能按钮</h3>
+    <table>
+        <tr><th>按钮名称</th><th>描述</th></tr>
+        <tr><td>M1</td><td>当该槽位存在图片时，点击显示图片，当缓冲区存在图片时，缓冲区内的图片会替换原有图片/空位。</td></tr>
+        <tr><td>M2</td><td>当该槽位存在图片时，点击显示图片，当缓冲区存在图片时，缓冲区内的图片会替换原有图片/空位。</td></tr>
+        <tr><td>M3</td><td>当该槽位存在图片时，点击显示图片，当缓冲区存在图片时，缓冲区内的图片会替换原有图片/空位。</td></tr>
+        <tr><td>显示缓冲区图片</td><td>预览缓冲区内图片</td></tr>
+
+    </table>
 
     <p>设置页左上角可返回主页。</p>
 
-    <h2 id="qa">Q&A 常见问题</h2>
-    <div class="qa">
+    <h2 id='qa'>Q&A 常见问题</h2>
+    <div class='qa'>
         <p><strong>Q1：</strong> 图片/动图显示不完整或画面撕裂？</p>
         <p><strong>A：</strong> 上传可能不完整，请清除并重新上传。</p>
 
@@ -179,43 +210,52 @@ html {
 
         <p><strong>Q4：</strong> 开启了开机展示动图，但没有展示？</p>
         <p><strong>A：</strong> 请清除图片/动图并重新上传。</p>
+
+        <p><strong>Q5：</strong> 点击触屏无反应？</p>
+        <p><strong>A：</strong> 屏幕损坏或接触不良，按一按，重启几次可能会修复。</p>
     </div>
 
-    <h2 id="download">下载与支持 </h2>
-    <h3> *请连接到正常网络继续，在线完成不支持动图，并需要继续连接PixyChan32!</h3>
-    <div class="download-cards">
-        <div class="card">
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
-            <path fill="#00b0ff" d="M20 25.026L5.011 25 5.012 37.744 20 39.818zM22 25.03L22 40.095 42.995 43 43 25.066zM20 8.256L5 10.38 5.014 23 20 23zM22 7.973L22 23 42.995 23 42.995 5z"></path>
+    <h2 id='download'>下载与支持 </h2>
+    <h3> *下载请连接到正常网络再继续。在线上传不支持动图，需要连接到PixyChan32。</h3>
+    <div class='download-cards'>
+        <div class='card'>
+            <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='100' height='100' viewBox='0 0 48 48'>
+            <path fill='#00b0ff' d='M20 25.026L5.011 25 5.012 37.744 20 39.818zM22 25.03L22 40.095 42.995 43 43 25.066zM20 8.256L5 10.38 5.014 23 20 23zM22 7.973L22 23 42.995 23 42.995 5z'></path>
             </svg>
             <h3>Windows版</h3>
-            <a href="https://github.com/txlweb/PixyChan32/releases/tag/we_v1">下载</a>
+            <a href='https://github.com/txlweb/PixyChan32/releases/tag/we_v1'>下载</a>
         </div>
-        <div class="card">
-<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
-<path fill="#30dc80" d="M24,14.088C11.427,14.088,1.108,23.716,0,36h48C46.892,23.716,36.573,14.088,24,14.088z M33.179,27.079c0-1.104,0.895-1.999,1.999-1.999c1.104,0,1.999,0.895,1.999,1.999c0,1.104-0.895,1.999-1.999,1.999	C34.074,29.078,33.179,28.183,33.179,27.079z M12.822,29.078c-1.104,0-1.999-0.895-1.999-1.999c0-1.104,0.895-1.999,1.999-1.999	s1.999,0.895,1.999,1.999C14.821,28.183,13.926,29.078,12.822,29.078z"></path><path fill="#30dc80" d="M34.038,19.313c-0.14,0-0.281-0.035-0.41-0.11c-0.393-0.227-0.527-0.729-0.301-1.122l5.197-9.008	c0.227-0.394,0.729-0.529,1.122-0.301c0.393,0.227,0.527,0.729,0.301,1.122l-5.197,9.008C34.598,19.166,34.322,19.313,34.038,19.313	z"></path><path fill="#30dc80" d="M13.962,19.313c-0.284,0-0.56-0.148-0.712-0.411L8.054,9.894C7.827,9.501,7.962,8.999,8.354,8.772	c0.392-0.228,0.895-0.093,1.122,0.301l5.197,9.008c0.227,0.394,0.092,0.896-0.301,1.122C14.243,19.278,14.102,19.313,13.962,19.313z"></path>
+        <div class='card'>
+<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='100' height='100' viewBox='0 0 48 48'>
+<path fill='#30dc80' d='M24,14.088C11.427,14.088,1.108,23.716,0,36h48C46.892,23.716,36.573,14.088,24,14.088z M33.179,27.079c0-1.104,0.895-1.999,1.999-1.999c1.104,0,1.999,0.895,1.999,1.999c0,1.104-0.895,1.999-1.999,1.999	C34.074,29.078,33.179,28.183,33.179,27.079z M12.822,29.078c-1.104,0-1.999-0.895-1.999-1.999c0-1.104,0.895-1.999,1.999-1.999	s1.999,0.895,1.999,1.999C14.821,28.183,13.926,29.078,12.822,29.078z'></path><path fill='#30dc80' d='M34.038,19.313c-0.14,0-0.281-0.035-0.41-0.11c-0.393-0.227-0.527-0.729-0.301-1.122l5.197-9.008	c0.227-0.394,0.729-0.529,1.122-0.301c0.393,0.227,0.527,0.729,0.301,1.122l-5.197,9.008C34.598,19.166,34.322,19.313,34.038,19.313	z'></path><path fill='#30dc80' d='M13.962,19.313c-0.284,0-0.56-0.148-0.712-0.411L8.054,9.894C7.827,9.501,7.962,8.999,8.354,8.772	c0.392-0.228,0.895-0.093,1.122,0.301l5.197,9.008c0.227,0.394,0.092,0.896-0.301,1.122C14.243,19.278,14.102,19.313,13.962,19.313z'></path>
 </svg>
             <h3>Android版</h3>
-            <a href="https://github.com/txlweb/PixyChan32/releases/tag/ae_v1">下载</a>
+            <a href='https://github.com/txlweb/PixyChan32/releases/tag/ae_v1'>下载</a>
         </div>
-        <div class="card">
+        <div class='card'>
 
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
-            <path fill="#0277BD" d="M24.047,5c-1.555,0.005-2.633,0.142-3.936,0.367c-3.848,0.67-4.549,2.077-4.549,4.67V14h9v2H15.22h-4.35c-2.636,0-4.943,1.242-5.674,4.219c-0.826,3.417-0.863,5.557,0,9.125C5.851,32.005,7.294,34,9.931,34h3.632v-5.104c0-2.966,2.686-5.896,5.764-5.896h7.236c2.523,0,5-1.862,5-4.377v-8.586c0-2.439-1.759-4.263-4.218-4.672C27.406,5.359,25.589,4.994,24.047,5z M19.063,9c0.821,0,1.5,0.677,1.5,1.502c0,0.833-0.679,1.498-1.5,1.498c-0.837,0-1.5-0.664-1.5-1.498C17.563,9.68,18.226,9,19.063,9z"></path><path fill="#FFC107" d="M23.078,43c1.555-0.005,2.633-0.142,3.936-0.367c3.848-0.67,4.549-2.077,4.549-4.67V34h-9v-2h9.343h4.35c2.636,0,4.943-1.242,5.674-4.219c0.826-3.417,0.863-5.557,0-9.125C41.274,15.995,39.831,14,37.194,14h-3.632v5.104c0,2.966-2.686,5.896-5.764,5.896h-7.236c-2.523,0-5,1.862-5,4.377v8.586c0,2.439,1.759,4.263,4.218,4.672C19.719,42.641,21.536,43.006,23.078,43z M28.063,39c-0.821,0-1.5-0.677-1.5-1.502c0-0.833,0.679-1.498,1.5-1.498c0.837,0,1.5,0.664,1.5,1.498C29.563,38.32,28.899,39,28.063,39z"></path>
+            <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='100' height='100' viewBox='0 0 48 48'>
+            <path fill='#0277BD' d='M24.047,5c-1.555,0.005-2.633,0.142-3.936,0.367c-3.848,0.67-4.549,2.077-4.549,4.67V14h9v2H15.22h-4.35c-2.636,0-4.943,1.242-5.674,4.219c-0.826,3.417-0.863,5.557,0,9.125C5.851,32.005,7.294,34,9.931,34h3.632v-5.104c0-2.966,2.686-5.896,5.764-5.896h7.236c2.523,0,5-1.862,5-4.377v-8.586c0-2.439-1.759-4.263-4.218-4.672C27.406,5.359,25.589,4.994,24.047,5z M19.063,9c0.821,0,1.5,0.677,1.5,1.502c0,0.833-0.679,1.498-1.5,1.498c-0.837,0-1.5-0.664-1.5-1.498C17.563,9.68,18.226,9,19.063,9z'></path><path fill='#FFC107' d='M23.078,43c1.555-0.005,2.633-0.142,3.936-0.367c3.848-0.67,4.549-2.077,4.549-4.67V34h-9v-2h9.343h4.35c2.636,0,4.943-1.242,5.674-4.219c0.826-3.417,0.863-5.557,0-9.125C41.274,15.995,39.831,14,37.194,14h-3.632v5.104c0,2.966-2.686,5.896-5.764,5.896h-7.236c-2.523,0-5,1.862-5,4.377v8.586c0,2.439,1.759,4.263,4.218,4.672C19.719,42.641,21.536,43.006,23.078,43z M28.063,39c-0.821,0-1.5-0.677-1.5-1.502c0-0.833,0.679-1.498,1.5-1.498c0.837,0,1.5,0.664,1.5,1.498C29.563,38.32,28.899,39,28.063,39z'></path>
             </svg>
             <h3>Python脚本</h3>
-            <a href="https://github.com/txlweb/PixyChan32/releases/tag/pe_v1">下载</a>
+            <a href='https://github.com/txlweb/PixyChan32/releases/tag/pe_v1'>下载</a>
         </div>
-        <div class="card">
-<img src="data:image/png;base64,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" style="width: 100px;height: 100px" alt="cloud-binary-code">            <h3>在线完成</h3>
-            <a href="/updatepage" target="_blank">前往</a>
+        <div class='card'>
+            <img style='width: 100px;height: 100px' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFO0lEQVR4nO3XzVMadxgH8E0bjfiC+IZBEQXxJcac+i+0t3baHtr/oId00h47ii+AJoqIomgMLxLRTC/20JOZadNTm2lyidGmRUAReVlAQcBl1DHWPp3ddRFk2QBikgPfme8Mx8+Pefb37CJIPvnkk08+7zriR0H2jXns8/YFTNNmwp63mrCtVhO232qKHLbMRfziufDzZmNY22yMfN0xvV2KvC9p+TEiItDz0WjbPAZ4W01496Bljqz4YQSajXjDIJoNg8gQPhDqQ1qxLtL8zuAdi1B4YyE60DaPHacNnw2D0BAi2qQPgUAXfC3Q7g7xx1yst4pvXQgL2+exlfaF1HASTw9v0u9Co24XBFq8QWiYCa4I9D7hW8F3PMI62hf2PMzwSHrwB3gDwJ8husOf8XVeKr5tLtzUNr+3wwSn/nU6OImn4EEKDvX3d4jWTe/4uTN+0aXgP9JBQasJ+/OS4MCb2iZ6XbO9ytOhxTk/QMvcnoIZHs4KXjcdg8N1jR9qJ/3AnfDv10z4zFy1b6lmAr1TNeKsuxjetF/f8jByQAen/nU6OIU/gwcY4bUE3ke0Ru2F6nGyVWOek6oxdJEz6m3M6gBiY8SQFXzaB3VjduCp7FA/5U0T7ouDo0QrVXg9wFG6o+Uj6BcZ4fmLLpbIGMFSXYl0cOJmmfbBLY0Nnm5FiXZOWoA3iZ7i6eE1anp4xShZjtIN5SOukzKF+/u0DyAyhr/MCI6PypQPOjVWMG8fAhVb8BBuTa5BrdrDAPcywMmyFS5gDzv/Kx12fsUIb5wLN4kMoT7hbGgjbTg+41NeuDmZiI8dInAIN9VrwB13J8Crx1PDKTwBV7igbBivE0ruOTGWws2ngTuKhIaQWmgIHWWwhMiHU5MaH3+IjnEzVKtcWcFLh/BuQcm9LWDddcwm4MVGrEY0G3qZMRx/ODVe6Ji0MOLjD9GuMkOl0kngM4UX38XrANag47hocL0h9rAKDbsvmOEplhD+UI5Y4ZXvANLNqncfOPK/oeIUfTbndHB8ZCg8ASdaNLAJ1+T2O8QBmvSh8QtsT6gdscHtn50w8BsKA09QkD9Bk9CyXz1Epb+44ZufNqFc/k/WcBK/Cddk9seIWB/kN+qCR9nAY1fihBe4Yy6oUeF1QuXAq6QDlEtXoULhAM4w2XKFMwYn8fRwCp8Al9uhUGaHAtmGFRFog9Jcb88K+V9JB2BLV5P+cXZK+BYjnMBLN+Bq/waGNGgDTy8GT96eHBnNAfpXcgYvIPHwYd86hjTMBALZwlNtT3xczqes72UMTuFLaOCswbTgRD/ota0h9fd3jhLh8XOe3dpnS1eSDlDau/wGuCMTONErEtsSUje97c0czrz28XE5n5KeZbq7HBLHhR5+tZ+Ck/grPXitgHRbbiN1Uzt/xMPP3suT4eluT3xczqe450Xu4BIcbz1GfrDxEZ5muyvxgyJ7OHWXl/a9hP3XJzE8/rtYskx7lxemDbeR8FgtWmKJ8SZQAXfCf8gEp/B0cNolJF+DT3Rm6H3sIvrxAzOw+s30d7k0GU7NOT2cGJ09RGLmxd6DuGrfaE7g8Q/owAawZDaiRbJ1Grg9cziJP0Ekts8S30KljqLqcfRZTuCp1n7yEkqCU3haOIXvtn5H+w1QO+rjVqnQZ/FzzlF6LmN7Zg6XnI5Nl+1T5g8ZqaOIo3Qry5Wew8uBb2QBtx4j3RZdwsy/KRUqTwNb4e5iD7t+Zw+70LKhrX9zuD2Tr0RJAjiKSKxriMSyhEgs3xJXZT755JNPPvnkg7yf+R8f8vBSsOqG6wAAAABJRU5ErkJggg==' alt='upload-2'>
+            <h3>在线上传（图片）</h3>
+            <a href='/updatepage' target='_blank'>前往</a>
+        </div>
+        <div class='card'>
+            <img style='width: 100px;height: 100px' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADqUlEQVR4nO1YW48UVRBuQcXbCyJyCW5XDRuM+6IGBZ80XoD4wEV/gMFokOsPMKibYCJLCBjcrhpGYjYxJJBFn0R5gAAPmkCECImYgDyQdbksEJiu6uUBZdtUz2LY2Z5bT8/iJP0lJ+l0V9f5qk+d71S142TIkCFDhgwZ2hidO2S6S7ICST9Hkj1A8iuw/IWsN5Dkn2iw3gCWAXtmNki6CTxZPq8gT90X0q4XvICsPcj6B5KMIGuYaJCMIOkZYP0C8sHzLSU9qxA+hiRrI9JJCdcMSM+4JKvnbAsfTZU4kHyGrNdbRpzHDiC9Biyf2NxNkUfylyLLhYkijuNTbBAoeM8JwwcaI75LZyDJT43kMbIWbPmR9S3s9efN2VV80r6gDbu2e5jXRTmWNcj6dSP7B1j351ifrou8y8HbQDJUxzL/jHld73rBzIQL7HQUgllAugFYf6k9n1wBDpZUdWjORmWvkpPbSPKtqZCTMlwOXgSS3cDyd5XVNm7rYh0g65YaX+BHYP/ZtImXwyV5DlkO1FiRLeNehLx8FJeTwHrVDiqnCrq8oSdseaMDivV7YDmNJJeQ9WY0SC7ZPXsW2VCweMbWy49X85kjedfUKG7PGdfYl8qDAJZDlqexxt3hJGB/GZB+hyy3GlcZuQWs+0zpzFfcFM/0Ds9GlsN1kb8LJPkAWe4ga9/8QvhQHPEc+e8D6bm05BJYz7qevzIukNe6wweRdGdJ7WRtVfL/BZEvLogPbvhlZDnZKt0HlhO5ncMvxc0Nnr/QSYzucBKSbIxUqEXkcazSfVwprRqG1SVRrtae3KrPPSZzLunrc71i5+xef5oNu86xvmHnBrLsHd3ctdJqXyo1UalUrnJikhwxm67+8OF6fZqtm5d3kPVoFb8jZuOkgTiJBZbfc56+2axvzOsi8zWOPMlqJ03cGwSwbO/cEU5Jy7fbFz6CJF+2jPy9QURyVwEdXMyZ1EWHGenxqAtjGUDWY3ZeWCHX8dVNrBiI569sGflqcNl/BUh/qL+6lIPNyWKaXRprX3LJ1G9S7b4aJk9yqnntl9+a7rySAlk+HC07kpGnKOXiy+OJQtSFjSkA9U9g+RQ8edU2tQ27tr4aSM+3VCqTwogAqwLLKqc/nFzRsD+cbEpmtqZIzv8JHVyc2grbDElgtU7UokZdmVy0v3iN1Er3HaO/HctVp8dpF2CpHy7X+8tOuwBLaVOu+YNOO6cQkG522mwT95RWog03cYYMGZwJw7/ekONKEARPQgAAAABJRU5ErkJggg==' alt='wifi--v1'>
+            <h3>在线配网</h3>
+            <a href='/setwifiht' target='_blank'>前往</a>
+
         </div>
     </div>
-
     <h3>硬件要求：</h3>
     <p><strong>Windows</strong>：支持无线网卡。</p>
     <p><strong>Android</strong>：Android 12 及以上版本。</p>
-    <p><strong>Python</strong>：Pillow、requests库，建议 Python 版本为 3.11。</p>
+    <p><strong>Python</strong>：详见源码，建议 Python 版本为 3.11。</p>
 
 </div>
 
@@ -227,25 +267,25 @@ function scrollProgress() {
   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
   var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   var scrolled = (winScroll / height) * 100;
-  document.getElementById("progressBar").style.width = scrolled + "%";
+  document.getElementById('progressBar').style.width = scrolled + '%';
 }
 
 function highlightNav() {
-    const sections = document.querySelectorAll(".content h1, .content h2");
-    const navLinks = document.querySelectorAll(".sidebar a.nav-link");
-    let current = "";
+    const sections = document.querySelectorAll('.content h1, .content h2');
+    const navLinks = document.querySelectorAll('.sidebar a.nav-link');
+    let current = '';
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         if (pageYOffset >= sectionTop - 60) {
-            current = section.getAttribute("id");
+            current = section.getAttribute('id');
         }
     });
 
     navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
         }
     });
 }
